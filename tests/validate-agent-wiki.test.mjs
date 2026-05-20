@@ -6,8 +6,5 @@ const result = spawnSync(process.execPath, ['scripts/validate-agent-wiki.mjs'], 
 });
 
 assert.equal(result.status, 0, result.stderr || result.stdout);
-assert.match(
-  `${result.stderr}${result.stdout}`,
-  /project-only installation wording/i,
-  'validator should confirm the project-only installation wording',
-);
+assert.match(result.stdout, /project only/i);
+assert.match(result.stdout, /never install globally/i);

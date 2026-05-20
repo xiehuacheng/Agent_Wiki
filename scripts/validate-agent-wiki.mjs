@@ -31,4 +31,6 @@ if (!usingAgentWiki.includes(requiredWording)) {
   throw new Error('using-agent-wiki is missing the project-only installation wording');
 }
 
-console.log(`Validated ${skillFiles.length} skills and confirmed project-only installation wording.`);
+console.log(
+  `Validated ${skillFiles.length} skills; project only installation wording is present and says never install globally.`,
+);
