@@ -1,8 +1,8 @@
 ---
 name: agent-wiki-ingest
-description: Compile raw sources into stable agent-wiki pages.
+description: Compile raw sources into stable wiki pages.
 ---
 
 # agent-wiki Ingest
 
-Extract stable knowledge from raw sources, write concise wiki pages, and keep source pointers for traceability.
+Compile raw sources into stable wiki pages, keep source pointers for traceability, and preserve the link back to the original material.
