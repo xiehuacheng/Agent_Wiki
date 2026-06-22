@@ -13,15 +13,13 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 2. 参考 Karpathy 的 LLM Wiki 模式（https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f）和 OKF 规范（https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md）。
 3. **不要预填初始知识**，等待用户提供来源或明确指令。
 4. 如果项目还没有 git 仓库，请先初始化。
-5. 设计并创建目录结构：
-   - `00-Raw/` —— 原始资料存放处。尽量把输入转换成 Markdown，并使用 `type: source`（或 `type: raw`）。
-   - `01-Wiki/` —— 整理好的主题卡片，使用 `type: concept`。
-   - `02-*/` —— 第二级分类目录，由你根据领域特征自行选择：
-     - 若领域偏跨学科、工具导向或主题松散（例如“AI 工具”“学习方法”），使用 `02-Areas/`，条目 `type: area`。
-     - 若领域有明确技术板块或课程结构（例如“自然语言处理”“计算机视觉”），使用 `02-Module/`，条目 `type: module`。
-     - 用 1–2 句话说明你的选择理由。如果两种特征都很强，优先选 `02-Areas/`，再在下面用子目录表达模块。
-   - `03-Projects/` —— 正在做的具体项目，使用 `type: project`。
-   - 非 Markdown 附件（PDF、图片等）放在 `assets/` 目录，或通过 `resource` frontmatter 字段引用。
+5. 初始化时**只创建基础目录结构**，不要自行判断创建与内容相关的二级/三级文件夹：
+   - `00-Raw/` —— 原始资料存放处（可包含 `classified/` 与 `uncategorized/` 两个空子目录）。
+   - `01-Wiki/` —— 主题卡片。
+   - `03-Projects/` —— 具体项目。
+   - `assets/` —— 非 Markdown 附件（可选）。
+   
+   `02-Areas/` 或 `02-Module/` 不要在初始化时创建。等用户提供资料并明确分类需求后，再询问用户是否需要创建、采用哪种方式，然后根据用户确认创建。
 6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），其中需包含：
    - Karpathy 原文中提到的 Wiki 内容类型
    - OKF 要求的 `type` 字段及取值规范
@@ -29,6 +27,7 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
    - 文件命名、链接、frontmatter 的使用规则
 7. 创建**根目录** `index.md`，frontmatter 中写入 `okf_version: "0.1"`，正文列出目录（可使用 Obsidian 风格 `[[标题]]` 或 OKF 风格 `[标题](相对路径)`）。
 8. 创建 `log.md`，日期标题使用 ISO 8601 格式 `YYYY-MM-DD`，并写入初始化记录。
+9. 可选项：如果用户需要，再询问是否为其创建一个 HTML 看板来展示 wiki 状态。
 
 ## 必须遵守的 OKF 约定
 
