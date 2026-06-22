@@ -44,11 +44,13 @@
 4. 如果你需要更好的 Obsidian 编辑支持，可在项目级别安装 kepano 的 obsidian-skills（https://github.com/kepano/obsidian-skills）；不安装也能正常使用。安装完后让我重启 agent 再继续。
 5. 请为我提供一个 html 看板（非必选，向我提问确定需求），让我能看到 wiki 当前的状态
 6. 请初始化 git 仓库
-7. 请根据 Karpathy 原文 **和 OKF 约定** 定义好第一版 schema 文档（例如 CLAUDE.md for Claude Code or AGENTS.md for Codex），其中需包含：
+7. 请根据 Karpathy 原文 **和 OKF 约定** 定义好第一版 schema 文档（例如 CLAUDE.md for Claude Code or AGENTS.md for Codex），并同时创建 **WORKFLOWS.md** 作为工作流程手册。其中需包含：
    - 原文中讲到的 Wiki 内容类型
    - OKF 要求的 `type` 字段及取值规范
    - `index.md` 和 `log.md` 的角色：根目录 `index.md` 正文列出目录（可使用 Obsidian 风格 `[[标题]]` 或 OKF 风格 `[标题](相对路径)`）；`log.md` 的日期标题使用 ISO 8601 `YYYY-MM-DD` 格式
    - 文件命名、链接、frontmatter 的使用规则
+   - 核心工作流程：Ingest（资料摄入）、Query（查询问答）、Lint（健康检查）的触发条件与执行步骤
+   - 扫描版/非文本资料的处理方式（如有）
 8. 在首次生成**根目录** `index.md` 时，于其 frontmatter 中写入 `okf_version: "0.1"`
 
 ## 目录设计

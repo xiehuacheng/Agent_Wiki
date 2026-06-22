@@ -20,11 +20,13 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
    - `03-Projects/` —— 具体项目。
    
    `02-*/` 下的具体子目录（如 `02-Module/数据结构/`、`02-Areas/AI工具/`）不要在初始化时创建。等用户提供资料并明确分类需求后，再询问用户是否需要创建、采用什么命名，然后根据用户确认创建。
-6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），其中需包含：
+6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），并同时创建 `WORKFLOWS.md` 作为工作流程手册。其中需包含：
    - Karpathy 原文中提到的 Wiki 内容类型
    - OKF 要求的 `type` 字段及取值规范
    - 根目录 `index.md` 和 `log.md` 的角色与格式
    - 文件命名、链接、frontmatter 的使用规则
+   - 核心工作流程：Ingest、Query、Lint 的触发条件与执行步骤
+   - 扫描版/非文本资料的处理方式（如有）
 7. 创建**根目录** `index.md`，frontmatter 中写入 `okf_version: "0.1"`，正文列出目录（可使用 Obsidian 风格 `[[标题]]` 或 OKF 风格 `[标题](相对路径)`）。
 8. 创建 `log.md`，日期标题使用 ISO 8601 格式 `YYYY-MM-DD`，并写入初始化记录。
 9. 可选项：如果用户需要，再询问是否为其创建一个 HTML 看板来展示 wiki 状态。
