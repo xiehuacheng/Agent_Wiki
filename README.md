@@ -23,22 +23,19 @@ Agent_Wiki/
 └── .gitignore
 ```
 
-## 一句话启动（新电脑/未安装 skill）
+## 一句话构建
 
 ```text
-请先从 https://github.com/xiehuacheng/Agent_Wiki 安装 init-wiki skill（把仓库里的 skills/init-wiki/ 目录复制或软链到 ~/.claude/skills/init-wiki/），然后执行 /init-wiki 为我初始化一个关于 [你的领域] 的 LLM wiki。
+请先从 https://github.com/xiehuacheng/Agent_Wiki 安装 init-wiki skill，然后使用 skill 为我初始化一个关于 [你的领域] 的 LLM wiki。
 ```
 
-如果 agent 没有自动安装，可以手动执行：
+## 手动构建
 
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/xiehuacheng/Agent_Wiki.git /tmp/Agent_Wiki
 cp -r /tmp/Agent_Wiki/skills/init-wiki ~/.claude/skills/
-# 然后重启 Claude Code，输入 /init-wiki
 ```
-
-## 快速开始
 
 ### 方式一：使用 Skill（推荐）
 
@@ -81,3 +78,4 @@ wiki/
 
 - Karpathy LLM Wiki 原文：https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 - OKF 规范：https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
+- 公众号文章：https://mp.weixin.qq.com/s/QqAFJm0RS-GnzPafnDmYCg
