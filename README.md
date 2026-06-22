@@ -19,7 +19,9 @@ Agent_Wiki/
 ├── README.md              # 本文件
 ├── skills/
 │   └── init-wiki/
-│       └── SKILL.md       # Claude Code skill，可通过 /init-wiki 调用
+│       ├── SKILL.md       # Claude Code skill，可通过 /init-wiki 调用
+│       └── templates/
+│           └── WORKFLOWS.md  # WORKFLOWS.md 模板，初始化时可参考
 └── .gitignore
 ```
 
