@@ -29,7 +29,6 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
    - 文件命名、链接、frontmatter 的使用规则
 7. 创建**根目录** `index.md`，frontmatter 中写入 `okf_version: "0.1"`，正文列出目录（可使用 Obsidian 风格 `[[标题]]` 或 OKF 风格 `[标题](相对路径)`）。
 8. 创建 `log.md`，日期标题使用 ISO 8601 格式 `YYYY-MM-DD`，并写入初始化记录。
-9. 可选项：如果用户需要，再询问是否为其创建一个 HTML 看板来展示 wiki 状态。
 
 ## 必须遵守的 OKF 约定
 
