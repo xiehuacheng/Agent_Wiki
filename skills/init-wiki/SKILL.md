@@ -13,13 +13,13 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 2. 参考 Karpathy 的 LLM Wiki 模式（https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f）和 OKF 规范（https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md）。
 3. **不要预填初始知识**，等待用户提供来源或明确指令。
 4. 如果项目还没有 git 仓库，请先初始化。
-5. 初始化时**只创建基础目录结构**，不要自行判断创建与内容相关的二级/三级文件夹：
+5. 初始化时创建以下四个基础目录：
    - `00-Raw/` —— 原始资料存放处（可包含 `classified/` 与 `uncategorized/` 两个空子目录）。
    - `01-Wiki/` —— 主题卡片。
+   - `02-Areas/` 或 `02-Module/` —— 第二级分类目录，只创建这一层空目录；不要在其下再创建具体领域子文件夹。
    - `03-Projects/` —— 具体项目。
-   - `assets/` —— 非 Markdown 附件（可选）。
    
-   `02-Areas/` 或 `02-Module/` 不要在初始化时创建。等用户提供资料并明确分类需求后，再询问用户是否需要创建、采用哪种方式，然后根据用户确认创建。
+   `02-*/` 下的具体子目录（如 `02-Module/数据结构/`、`02-Areas/AI工具/`）不要在初始化时创建。等用户提供资料并明确分类需求后，再询问用户是否需要创建、采用什么命名，然后根据用户确认创建。
 6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），其中需包含：
    - Karpathy 原文中提到的 Wiki 内容类型
    - OKF 要求的 `type` 字段及取值规范
