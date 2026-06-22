@@ -52,4 +52,4 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 ## 其他注意事项
 
 - 有不确定的地方请向用户提问。
-- 如果需要且可用，请在项目级别安装 `frontend-design` skill 和 kepano 的 `obsidian-skills`，安装完后请用户重启 agent 再继续。
+- 如果需要更好的 Obsidian 编辑支持，可在项目级别安装 kepano 的 `obsidian-skills`，安装完后请用户重启 agent 再继续；不安装也能正常使用。

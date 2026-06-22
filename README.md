@@ -4,7 +4,7 @@
 
 ## 用途
 
-当你想为一个新领域（如考研 408、某个技术栈、研究方向）构建一个由 LLM 维护、人类策展的 wiki 时，可以用这个项目快速启动：
+当你想为一个新领域（如一个技术栈、研究方向、产品领域）构建一个由 LLM 维护、人类策展的 wiki 时，可以用这个项目快速启动：
 
 - 自动生成目录结构
 - 生成 `CLAUDE.md` / `AGENTS.md` schema 文档
@@ -21,6 +21,12 @@ Agent_Wiki/
 │   └── init-wiki/
 │       └── SKILL.md       # Claude Code skill，可通过 /init-wiki 调用
 └── .gitignore
+```
+
+## 一句话启动
+
+```text
+请使用 /init-wiki 为我初始化一个关于 [你的领域] 的 LLM wiki。
 ```
 
 ## 快速开始
@@ -60,8 +66,7 @@ wiki/
 
 ## 依赖（可选）
 
-- [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)：Claude 官方前端设计 skill
-- [obsidian-skills](https://github.com/kepano/obsidian-skills)：Kepano 的 Obsidian 编辑 skill
+- [obsidian-skills](https://github.com/kepano/obsidian-skills)：Kepano 的 Obsidian 编辑 skill，安装后编辑体验更好，不安装也能正常使用。
 
 ## 相关资源
 

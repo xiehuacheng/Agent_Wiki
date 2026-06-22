@@ -41,7 +41,7 @@
 1. 请你确保在阅读完上面的链接之后再进行操作
 2. 不要给知识库中填充初始知识
 3. 有不确定的地方请向我提问
-4. 如果你没有 claude 官方的 frontend-design skill（https://github.com/anthropics/skills/tree/main/skills/frontend-design） 和 kepano 的 obsidian-skills（https://github.com/kepano/obsidian-skills）的话请自行下载安装，请安装到项目级别而不是全局，安装完后让我重启 agent 之后再继续
+4. 如果你需要更好的 Obsidian 编辑支持，可在项目级别安装 kepano 的 obsidian-skills（https://github.com/kepano/obsidian-skills）；不安装也能正常使用。安装完后让我重启 agent 再继续。
 5. 请为我提供一个 html 看板（非必选，向我提问确定需求），让我能看到 wiki 当前的状态
 6. 请初始化 git 仓库
 7. 请根据 Karpathy 原文 **和 OKF 约定** 定义好第一版 schema 文档（例如 CLAUDE.md for Claude Code or AGENTS.md for Codex），其中需包含：
