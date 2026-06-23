@@ -9,6 +9,8 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 
 ## 执行流程
 
+执行过程中，鼓励将可并行的独立任务（如批量资料摄入、多主题卡片创建）交给 sub agent 处理；主会话负责任务拆分、结果整合与质量兜底。若 sub agent 失败或超时，主会话应及时接管，避免阻塞整体流程。
+
 1. 如果用户还没有说明领域或主题，先问：**“你想构建关于哪个领域的 wiki？”**
 2. 参考 Karpathy 的 LLM Wiki 模式（https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f）和 OKF 规范（https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md）。
 3. **不要预填初始知识**，等待用户提供来源或明确指令。
@@ -20,7 +22,7 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
    - `03-Projects/` —— 具体项目。
    
    `02-*/` 下的具体子目录（如 `02-Module/数据结构/`、`02-Areas/AI工具/`）不要在初始化时创建。等用户提供资料并明确分类需求后，再询问用户是否需要创建、采用什么命名，然后根据用户确认创建。
-6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），并同时创建 `WORKFLOWS.md` 作为工作流程手册。可参考 skill 目录中的 `templates/WORKFLOWS.md` 模板。其中需包含：
+6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），并同时创建 `WORKFLOWS.md` 作为工作流程手册。可参考仓库根目录下的 `templates/WORKFLOWS.md` 模板。其中需包含：
    - Karpathy 原文中提到的 Wiki 内容类型
    - OKF 要求的 `type` 字段及取值规范
    - 根目录 `index.md` 和 `log.md` 的角色与格式
@@ -47,9 +49,11 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 - **外部链接用标准 Markdown**：如 `[来源](https://example.com)`。
 - **保留 YAML frontmatter**：不要删除或修改 `type`、`title`、`description`、`tags`、`aliases`、`cssclasses` 等字段，除非用户明确要求。
 - **保留文件命名习惯**：继续使用中文知识点名称作为文件名，例如 `二叉树.md`，不要改成 slug。
+- **防止双后缀**：概念 `.md` 文件不得以 `.md` 结尾再加 `.md`（禁止 `CLAUDE.md.md`、`index.md.md`、`log.md.md`）。若概念名本身含 `.md`（如 `CLAUDE.md`），应命名为 `CLAUDE.md 配置文件.md` 或 `CLAUDE.md 项目规范.md`。
 - **仅在明确需要对外导出 OKF 时**，才批量把 `[[...]]` 转换为标准 Markdown 链接；转换前需告知用户并征得同意。
 
 ## 其他注意事项
 
+- 执行 Ingest 时，鼓励使用 sub agent 并行处理独立主题；若某个 sub agent 失败或超时，主会话应接管并手动完成对应卡片，避免阻塞流程。详见 `WORKFLOWS.md` 的 Ingest 流程。
 - 有不确定的地方请向用户提问。
 - 如果需要更好的 Obsidian 编辑支持，可在项目级别安装 kepano 的 `obsidian-skills`，安装完后请用户重启 agent 再继续；不安装也能正常使用。

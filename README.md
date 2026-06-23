@@ -15,14 +15,12 @@
 
 ```text
 Agent_Wiki/
-├── Prompt.md              # 直接可用的完整提示词
 ├── README.md              # 本文件
-├── skills/
-│   └── init-wiki/
-│       ├── SKILL.md       # Claude Code skill，可通过 /init-wiki 调用
-│       └── templates/
-│           └── WORKFLOWS.md  # WORKFLOWS.md 模板，初始化时可参考
-└── .gitignore
+├── templates/
+│   └── WORKFLOWS.md       # WORKFLOWS.md 模板，初始化时可参考
+└── skills/
+    └── init-wiki/
+        └── SKILL.md       # Claude Code skill，可通过 /init-wiki 调用
 ```
 
 ## 一句话构建
@@ -39,7 +37,7 @@ git clone https://github.com/xiehuacheng/Agent_Wiki.git /tmp/Agent_Wiki
 cp -r /tmp/Agent_Wiki/skills/init-wiki ~/.claude/skills/
 ```
 
-### 方式一：使用 Skill（推荐）
+## 使用 Skill
 
 安装完成后，在 Claude Code 中输入：
 
@@ -48,10 +46,6 @@ cp -r /tmp/Agent_Wiki/skills/init-wiki ~/.claude/skills/
 ```
 
 Agent 会询问你想构建哪个领域的 wiki，然后自动完成初始化。
-
-### 方式二：使用 Prompt.md
-
-把 `Prompt.md` 的内容复制进 Claude Code 的对话，按提示回答领域问题即可。
 
 ## 生成的 Wiki 目录结构
 
