@@ -29,7 +29,7 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
    - 文件命名、链接、frontmatter 的使用规则
    - 核心工作流程：Ingest、Query、Lint 的**明确职责分界**、触发条件与执行步骤
    - 扫描版/非文本资料的处理方式（如有）
-7. 创建**根目录** `index.md`，frontmatter 中写入 `okf_version: "0.1"`，正文列出目录（可使用 Obsidian 风格 `[[标题]]` 或 OKF 风格 `[标题](相对路径)`）。
+7. 创建**根目录** `index.md`，frontmatter 中写入 `okf_version: "0.1"`，正文列出 wiki 目录入口。注意：`00-Raw/` 不要作为 `[[00-Raw]]` 的 wikilink 目标，因为 raw 目录不需要 `index.md`；写成纯文本说明即可。其他目录链接使用 Obsidian 风格 `[[标题]]` 或 OKF 风格 `[标题](相对路径)`。
 8. 创建 `log.md`，日期标题使用 ISO 8601 格式 `YYYY-MM-DD`，并写入初始化记录。
 9. 可选项：如果用户需要，再询问是否为其创建一个 HTML 看板来展示 wiki 状态。
 
@@ -66,12 +66,25 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 
 如果 sub agent 失败或超时，主会话应接管并手动完成对应卡片，避免阻塞流程。详见 `WORKFLOWS.md` 的 Ingest 流程。
 
+## 升级与迁移
+
+当 `init-wiki` skill 本身有重大更新（如 Ingest 流程调整、目录约定变化）时，已经用旧版 skill 初始化的 wiki 项目不会自动更新。主会话应：
+
+1. **同步 `WORKFLOWS.md`**：将项目根目录的 `WORKFLOWS.md` 与当前 skill 模板对齐。这是项目级文件，skill 更新不会自动覆盖。
+2. **同步 `CLAUDE.md` / `AGENTS.md`**：把 schema 文档中的过时约定（如目录结构、frontmatter 规则、工作流程）更新到最新版本。
+3. **清理过时结构**：例如旧版可能创建了 `00-Raw/index.md`、`00-Raw/classified/index.md`、`00-Raw/uncategorized/index.md` 等，新版已明确这些目录不需要 `index.md`，应删除。
+4. **更新根 `index.md`**：如果旧版链接了不应再存在的页面或目录（如 `[[00-Raw]]`），应移除或改为纯文本说明。
+5. **在 `log.md` 中记录迁移**：说明本次迁移的原因和变更内容。
+
+完成迁移后，再按新版流程继续 Ingest / Query / Lint。
+
 ## 必须遵守的 OKF 约定
 
 - 每个概念 `.md` 文件都必须包含可解析的 YAML frontmatter，且至少有一个非空的 `type` 字段。
 - 建议的 frontmatter 字段包括：`title`、`description`、`resource`、`tags`、`timestamp`（ISO 8601）。
 - 允许自定义扩展字段；消费工具应保留不认识的键，不能因此拒绝文档。
 - **只有根目录的 `index.md`** 可以包含 frontmatter，且仅用于声明 `okf_version`；子目录中的 `index.md` 和任何 `log.md` 都不得包含 frontmatter。
+- **子目录 `index.md` 的角色**：允许作为该目录的导航/概览页存在，但不是必须的；如果存在，只能包含目录说明和页面链接，不能包含 frontmatter，也不应被当作概念页面。
 - 知识图谱优先使用 Obsidian 双向链接（`[[文本]]`）。如需与严格 OKF 工具交换，可在 lint/export 阶段转换为标准 Markdown 链接（`[文本](路径)`）。
 - 概念身份等于文件在包内的路径去掉 `.md` 后缀。
 - 断链是允许的，不能视为格式错误。
