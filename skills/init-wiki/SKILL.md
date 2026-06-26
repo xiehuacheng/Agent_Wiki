@@ -22,7 +22,7 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
    - `03-Projects/` —— 具体项目。
    
    `02-*/` 下的具体子目录（如 `02-Module/数据结构/`、`02-Areas/AI工具/`）不要在初始化时创建。等用户提供资料并明确分类需求后，再询问用户是否需要创建、采用什么命名，然后根据用户确认创建。
-6. 创建第一版 schema 文档（Claude Code 用 `CLAUDE.md`，Codex 用 `AGENTS.md`），并同时创建 `WORKFLOWS.md` 作为工作流程手册。可参考仓库根目录下的 `templates/WORKFLOWS.md` 模板。其中需包含：
+6. 创建第一版 agent schema 文档（例如 Claude Code 用 `CLAUDE.md`，Codex / OpenCode 等用 `AGENTS.md`），并同时创建 `WORKFLOWS.md` 作为工作流程手册。可参考仓库根目录下的 `templates/WORKFLOWS.md` 模板。其中需包含：
    - Karpathy 原文中提到的 Wiki 内容类型
    - OKF 要求的 `type` 字段及取值规范
    - 根目录 `index.md` 和 `log.md` 的角色与格式

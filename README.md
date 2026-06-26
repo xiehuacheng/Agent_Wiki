@@ -1,6 +1,6 @@
 # Agent Wiki
 
-一个用于初始化并维护 **Karpathy 式 LLM Wiki** 的 Claude Code 项目模板。它兼容 Google Cloud 的 [Open Knowledge Format（OKF）0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)，同时**优先保留 Obsidian 原生格式**。
+一个用于初始化并维护 **Karpathy 式 LLM Wiki** 的通用 agent skill 模板。它兼容 Google Cloud 的 [Open Knowledge Format（OKF）0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)，同时**优先保留 Obsidian 原生格式**。
 
 ## 用途
 
@@ -20,7 +20,7 @@ Agent_Wiki/
 │   └── WORKFLOWS.md       # WORKFLOWS.md 模板，初始化时可参考
 └── skills/
     └── init-wiki/
-        └── SKILL.md       # Claude Code skill，可通过 /init-wiki 调用
+        └── SKILL.md       # 通用 agent skill，例如 Claude Code 中可通过 /init-wiki 调用
 ```
 
 ## 一句话构建
@@ -39,7 +39,7 @@ cp -r /tmp/Agent_Wiki/skills/init-wiki ~/.claude/skills/
 
 ## 使用 Skill
 
-安装完成后，在 Claude Code 中输入：
+安装完成后，在支持的 agent 环境中输入（例如 Claude Code）：
 
 ```text
 /init-wiki
