@@ -9,14 +9,14 @@ description: 根据指定领域，初始化并维护一个 Obsidian 优先、兼
 
 ## 执行流程
 
-执行过程中，鼓励将可并行的独立任务（如批量资料摄入、多主题卡片创建）交给 sub agent 处理；主会话负责任务拆分、结果整合与质量兜底。若 sub agent 失败或超时，主会话应及时接管，避免阻塞整体流程。
+执行过程中，可将耗时的独立执行任务（如批量创建/更新卡片）交给 sub agent 并行处理；但 **Ingest 中的 takeaways 讨论和页面方案确认必须由主会话完成**，主会话负责任务拆分、结果整合与质量兜底。若 sub agent 失败或超时，主会话应及时接管，避免阻塞整体流程。
 
 1. 如果用户还没有说明领域或主题，先问：**“你想构建关于哪个领域的 wiki？”**
 2. 参考 Karpathy 的 LLM Wiki 模式（https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f）和 OKF 规范（https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md）。
 3. **不要预填初始知识**，等待用户提供来源或明确指令。
 4. 如果项目还没有 git 仓库，请先初始化。
 5. 初始化时创建以下四个基础目录：
-   - `00-Raw/` —— 原始资料存放处，必须包含 `classified/` 与 `uncategorized/` 两个空子目录。
+   - `00-Raw/` —— 原始资料存放处，必须包含 `classified/` 与 `uncategorized/` 两个空子目录。**原始资料只读不改**，Agent 读取后不要在原文件上做任何修改。
    - `01-Wiki/` —— 主题卡片。
    - `02-Areas/` 或 `02-Module/` —— 第二级分类目录，只创建这一层空目录；不要在其下再创建具体领域子文件夹。
    - `03-Projects/` —— 具体项目。
