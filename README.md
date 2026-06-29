@@ -51,12 +51,14 @@ Agent 会询问你想构建哪个领域的 wiki，然后自动完成初始化。
 
 ```text
 wiki/
-├── 00-Raw/                # 原始资料（Markdown + type: source）
-├── 01-Wiki/               # 知识点卡片（type: concept/card/comparison/algorithm）
+├── 00-Raw/                 # 原始资料（Markdown + type: source）
+├── 01-Wiki/                # 知识点卡片（type: concept/card/comparison/algorithm）
 ├── 02-Areas/ 或 02-Module/ # 第二级分类（agent 会根据领域自动选择）
-├── 03-Projects/           # 具体项目（type: project）
-├── index.md               # 根目录，frontmatter 声明 okf_version: "0.1"
-└── log.md                 # 追加式更新日志
+│   └── <领域>/
+│       ├── index.md        # 领域落地页
+│       └── 子话题.md        # 成熟期拆分的子话题
+├── index.md                # 根目录，frontmatter 声明 okf_version: "0.1"
+└── log.md                  # 追加式更新日志
 ```
 
 ## 核心约定
